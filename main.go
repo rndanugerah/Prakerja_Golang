@@ -1,8 +1,12 @@
 package main
 
-import "prakerja/routes"
+import (
+	"prakerja/db"
+	"prakerja/routes"
+)
 
 func main() {
+	db.Init()
 	e := routes.Init()
 	e.Logger.Fatal(e.Start(":1234"))
 }
