@@ -14,6 +14,7 @@ func Init() *echo.Echo {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 
+	e.GET("/employees/:id", employees.GetEmployeeByID)
 	e.GET("/employees", employees.FetchAllEmployees)
 	e.POST("/employees", employees.StoreEmployees)
 	e.PUT("/employees", employees.UpdateEmployees)
