@@ -2,7 +2,7 @@ package routes
 
 import (
 	"net/http"
-	"prakerja/controllers"
+	"prakerja/controllers/employees"
 
 	"github.com/labstack/echo/v4"
 )
@@ -14,10 +14,10 @@ func Init() *echo.Echo {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 
-	e.GET("/pegawai", controllers.FetchAllPegawai)
-	e.POST("/pegawai", controllers.StorePegawai)
-	e.PUT("/pegawai", controllers.UpdatePegawai)
-	e.DELETE("/pegawai", controllers.DeletePegawai)
+	e.GET("/employees", employees.FetchAllEmployees)
+	e.POST("/employees", employees.StoreEmployees)
+	e.PUT("/employees", employees.UpdateEmployees)
+	e.DELETE("/employees/:id", employees.DeleteEmployees)
 
 	return e
 }
