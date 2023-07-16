@@ -9,10 +9,16 @@ import (
 )
 
 func UpdateEmployees(c echo.Context) error {
-	id := c.FormValue("id")
+	id := c.Param("id")
 	nama := c.FormValue("nama")
 	email := c.FormValue("email")
 	telepon := c.FormValue("telepon")
+
+	if id == "" {
+		return c.JSON(http.StatusBadRequest, map[string]string{
+			"error": "Empty 'id' parameter. It should be a valid integer.",
+		})
+	}
 
 	conv_id, err := strconv.Atoi(id)
 	if err != nil {
