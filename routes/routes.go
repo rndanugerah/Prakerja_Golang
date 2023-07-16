@@ -3,6 +3,7 @@ package routes
 import (
 	"net/http"
 	"prakerja/controllers/employees"
+	"prakerja/controllers/login"
 
 	"github.com/labstack/echo/v4"
 )
@@ -19,6 +20,9 @@ func Init() *echo.Echo {
 	e.POST("/employees", employees.StoreEmployees)
 	e.PUT("/employees/:id", employees.UpdateEmployees)
 	e.DELETE("/employees/:id", employees.DeleteEmployees)
+
+	e.GET("/generate-hash", login.GenerateHashPassword)
+	e.POST("/login", login.CheckLogin)
 
 	return e
 }
