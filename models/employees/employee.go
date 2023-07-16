@@ -1,8 +1,8 @@
 package employees
 
-type Pegawai struct {
+type Employee struct {
 	Id      int    `json:"id"`
-	Nama    string `json:"nama"`
-	Email   string `json:"email"`
-	Telepon string `json:"telepon"`
+	Nama    string `json:"nama" validate:"required"`
+	Email   string `json:"email" validate:"required"`
+	Telepon string `json:"telepon" validate:"required"`
 }

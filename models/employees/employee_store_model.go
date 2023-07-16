@@ -4,10 +4,25 @@ import (
 	"net/http"
 	"prakerja/db"
 	"prakerja/models"
+
+	validator "github.com/go-playground/validator/v10"
 )
 
 func StoreEmployees(nama string, email string, telepon string) (models.Response, error) {
 	var res models.Response
+
+	v := validator.New()
+
+	emp := Employee{
+		Nama:    nama,
+		Email:   email,
+		Telepon: telepon,
+	}
+
+	err := v.Struct(emp)
+	if err != nil {
+		return res, err
+	}
 
 	con := db.CreateCon()
 

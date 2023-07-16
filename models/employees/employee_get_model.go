@@ -8,7 +8,7 @@ import (
 )
 
 func GetEmployeeByID(id int) (models.Response, error) {
-	var obj Pegawai
+	var obj Employee
 	var res models.Response
 
 	con := db.CreateCon()

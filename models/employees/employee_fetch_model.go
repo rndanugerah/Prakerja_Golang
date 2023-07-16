@@ -7,8 +7,8 @@ import (
 )
 
 func FetchAllEmployees() (models.Response, error) {
-	var obj Pegawai
-	var arrobj []Pegawai
+	var obj Employee
+	var arrobj []Employee
 	var res models.Response
 
 	con := db.CreateCon()
