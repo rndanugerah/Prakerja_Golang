@@ -12,14 +12,14 @@ func FetchAllEmployees() (models.Response, error) {
 	var res models.Response
 
 	con := db.CreateCon()
-
+ 
 	sqlStatement := "SELECT * FROM pegawai"
 
 	rows, err := con.Query(sqlStatement)
 
 	if err != nil {
 		return res, err
-	}
+	} 
 
 	defer rows.Close()
 
